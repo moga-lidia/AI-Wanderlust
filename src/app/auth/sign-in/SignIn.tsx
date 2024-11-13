@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useNavigation } from 'expo-router'
 import {useRouter} from 'expo-router';
 import { colors, px } from '@/src/theme';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function SignIn() {
   const navigation = useNavigation();
@@ -14,7 +15,10 @@ export default function SignIn() {
     })
   }, []);
   return (
-    <View style={{padding: px(25), marginTop: px(25), backgroundColor: colors.white, paddingTop: px(50)}}>
+    <View style={{padding: px(25), backgroundColor: colors.white, height: '100%'}}>
+      <TouchableOpacity onPress={() => router.back()}>
+       <Ionicons style={{marginVertical: px(20)}} name="arrow-back-circle-outline" size={24} color="black" />
+      </TouchableOpacity>
       <Text style={{fontFamily: 'karla-bold', fontSize: px(30)}}>Let's sign you in</Text>
       <Text style={{fontFamily: 'karla-light', fontSize: px(30), marginTop: px(10)}}>Welcome back!</Text>
       <Text style={{fontFamily: 'karla-light', fontSize: px(30), marginTop: px(10)}}>Happy to see you here.</Text>
@@ -40,11 +44,11 @@ export default function SignIn() {
   )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   input: {
     padding: px(10),
     borderColor: colors.gradient_dark_gray,
-    borderWidth: px(5),
+    borderWidth: px(3),
     borderRadius: px(15),
     fontFamily: 'palyfair-regular'
   }
