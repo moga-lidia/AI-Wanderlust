@@ -30,7 +30,7 @@ export default function SelectBudget() {
             ToastAndroid.show('Please Start and End Date', ToastAndroid.BOTTOM);
             return;
         }
-        router.push('/');
+        router.push('/create-trip/review-trip');
     }
   return (
     <GestureHandlerRootView style={{
