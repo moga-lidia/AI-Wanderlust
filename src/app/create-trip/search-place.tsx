@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, { useContext, useEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { colors } from '@/src/theme/colors';
 import { px } from '@/src/theme';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -10,6 +10,7 @@ import { useCreateTripContext } from '@/src/context/CreateTripContext';
 export default function SearchPlace() {
     const navigation = useNavigation();
     const { tripData, setTripData } = useCreateTripContext();
+    const router = useRouter();
 
     useEffect(() => {
         navigation.setOptions({
@@ -19,9 +20,6 @@ export default function SearchPlace() {
         })
     }, [])
 
-    useEffect(() => {
-
-    }, [tripData]);
   return (
     <View style={{
         padding: px(25),
@@ -29,14 +27,11 @@ export default function SearchPlace() {
         backgroundColor: colors.white,
         height: '100%',
     }}>
-        <View>
-
        <GooglePlacesAutocomplete
             placeholder='Search Place'
             fetchDetails={true}
             onPress={(data, details = null) => {
-                // 'details' is provided when fetchDetails = true
-                console.log('details', details.photos);
+                console.log(process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY);
                 setTripData({
                     locationInfo: {
                         name: data.description,
@@ -44,7 +39,8 @@ export default function SearchPlace() {
                         photoRef: details?.icon,
                         url: details?.photos[0].photo_reference,
                     }
-                })
+                });
+                router.push('/create-trip/select-traveler');
             }}
             query={{
                 key: process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY,
@@ -59,7 +55,6 @@ export default function SearchPlace() {
                 }
             }}
         />
-        </View>
     </View>
   )
 }
