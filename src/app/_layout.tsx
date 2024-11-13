@@ -14,8 +14,12 @@ export default function RootLayout() {
     'playfair-semibold': require('./../../assets/fonts/PlayfairDisplay-SemiBold.ttf'),
   })
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{headerShown: false}}></Stack.Screen>
+    <Stack
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name='(tabs)' options={{headerShown: false}}></Stack.Screen>
     </Stack>
   );
 }

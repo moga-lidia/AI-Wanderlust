@@ -26,6 +26,7 @@ export default function SignUp() {
           // Signed up 
           const user = userCredential.user;
           console.log('user', user);
+          router.replace('/(tabs)/MyTrip');
         })
         .catch((error) => {
           console.log('err', error);
