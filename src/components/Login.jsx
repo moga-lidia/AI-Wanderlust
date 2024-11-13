@@ -15,7 +15,7 @@ export default function Login() {
         <Text style={styles.description}>
             Discover your next adventure effortlessly. 
             Personalized itineraries at your fingertips. 
-            Travel smarter aith AI-driven insights.
+            Travel smarter with AI-driven insights.
         </Text>
         <TouchableOpacity
           onPress={() => router.push('/auth/sign-in/SignIn')} 
