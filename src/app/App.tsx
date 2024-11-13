@@ -11,20 +11,17 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import {colors} from '../theme';
-import {ThemeProvider} from '../theme/paper';
+import {colors, px} from '../theme';
 import Login from '../components/Login';
 
 function App(): JSX.Element {
   return (
-    <ThemeProvider>
-      <SafeAreaProvider>
-        <SafeAreaView style={[styles.safeArea]}>
-          <StatusBar animated={true} backgroundColor={colors.primary} />
-          <Login/>
-        </SafeAreaView>
-      </SafeAreaProvider>
-    </ThemeProvider>
+    // <SafeAreaProvider>
+      <SafeAreaView style={[styles.safeArea]}>
+        <StatusBar animated={true} backgroundColor={colors.white} />
+        <Login/>
+      </SafeAreaView>
+    // </SafeAreaProvider>
   );
 }
 
@@ -36,6 +33,9 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
+    backgroundColor: colors.blueStatus,
+    width: '100%',
+    marginTop: px(-50),
   },
 });
 
