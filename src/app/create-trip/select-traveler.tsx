@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { colors } from '@/src/theme';
 import { FlatList, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SelectTravelersList } from '@/src/constants/Options';
@@ -11,6 +11,7 @@ export default function SelectTraveler() {
     const navigation = useNavigation();
     const [selectedTraveler, setSelectedTraveler] = useState<OptionCardType>();
     const { tripData, setTripData } = useCreateTripContext();
+    const router = useRouter();
 
     useEffect(() => {
         navigation.setOptions({
@@ -58,7 +59,8 @@ export default function SelectTraveler() {
         backgroundColor: colors.black,
         borderRadius: 15,
         marginTop: 20
-      }}>
+      }}
+        onPress={() => router.push('/create-trip/select-dates')}>
         <Text style={{
             textAlign: 'center',
             color: colors.white,
