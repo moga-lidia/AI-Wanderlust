@@ -42,7 +42,7 @@ export default function SelectDates(this: any) {
             endDate: endDate,
             totalNumberOfDays: totalNumberOfDays,
         })
-
+        router.push('/create-trip/select-budget');
     }
     
   return (

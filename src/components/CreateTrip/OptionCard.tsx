@@ -7,18 +7,17 @@ export type OptionCardType = {
   title: string;
   desc: string;
   icon: string;
-  people: string;
 };
 
 interface OptionCardProps {
   option: OptionCardType;
-  selectedTraveler: OptionCardType;
+  selectedOption: OptionCardType;
 }
 
-export default function OptionCard({ option, selectedTraveler }: OptionCardProps) {
+export default function OptionCard({ option, selectedOption }: OptionCardProps) {
   return (
     <View style={[{ padding: 15, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: colors.gradient_light_gray, borderRadius: 15,
-    }, selectedTraveler && selectedTraveler.id === option.id && {borderWidth: 3}]}>
+    }, selectedOption && selectedOption.id === option.id && {borderWidth: 3}]}>
       <View>
         <Text style={{
           fontSize:20,
